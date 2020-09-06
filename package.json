@@ -5,8 +5,11 @@
   "private": true,
   "scripts": {
     "prestart": "babel-node buildscripts/startupMessage.js",
-    "start": "babel-node buildscripts/srcServer.js",
+    "start": "npm-run-all --parallel open:src lint:watch",
     "build": "webpack",
+    "open:src": "babel-node buildscripts/srcServer.js",
+    "lint": "esw webpack.config.* src buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,10 +31,15 @@
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-watch": "^7.0.0",
     "html-webpack-plugin": "^4.4.1",
+    "npm-run-all": "^4.1.5",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
