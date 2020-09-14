@@ -1,6 +1,9 @@
-import { expect } from 'chai';
-import { JSDOM } from 'jsdom';
-import fs from 'fs';
+// import { expect } from 'chai';
+// import { JSDOM } from 'jsdom';
+// import fs from 'fs';
+const expect = require('chai');
+const JSDOM = require('jsdom');
+const fs = require('fs');
 
 describe('Our first test', () => {
   it('should pass', () => {
